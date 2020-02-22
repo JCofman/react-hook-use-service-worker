@@ -23,36 +23,29 @@ Make it easier to target low-end devices while progressively adding high-end-onl
 You can import the hooks you wish to use as follows:
 
 ```js
-// in your main app.js
-import React, { Component } from 'react';
-import {
-  ProvideServiceWorker,
-  useServiceWorker,
-} from 'react-hook-use-service-worker';
-
-class App extends Component {
-  render() {
-    return (
-      <ProvideServiceWorker filename="/my-sw.js">
-        {children}
-      </ProvideServiceWorker>
-    );
-  }
-}
-export default App;
-
-// in your components
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { useServiceWorker, ProvideServiceWorker } from '../.';
 
 const MyComponent = () => {
   const mySW = useServiceWorker();
-  console.log(mySW.serviceWorkerStatus);
-  return <div>{mySW.serviceWorkerStatus}</div>;
+
+  return <div>current service worker status: {mySW.serviceWorkerStatus}</div>;
 };
+
+const App = () => {
+  return (
+    <div>
+      <ProvideServiceWorker fileName={'/my-sw.js'}>
+        <MyComponent></MyComponent>
+      </ProvideServiceWorker>
+    </div>
+  );
+};
+export default App;
 ```
 
-## Commands
-
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
+## Contribute and Commands
 
 The recommended workflow is to run TSDX in one terminal:
 
@@ -76,41 +69,9 @@ To do a one-off build, use `npm run build` or `yarn build`.
 
 To run tests, use `npm test` or `yarn test`.
 
-## Configuration
-
-Code quality is [set up for you](https://github.com/palmerhq/tsdx/pull/45/files) with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
 ### Jest
 
 Jest tests are set up to run with `npm test` or `yarn test`. This runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```shell
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup v1.x](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
 
 ### TypeScript
 

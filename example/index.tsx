@@ -1,12 +1,20 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import { useServiceWorker, ProvideServiceWorker } from '../.';
+
+const MyComponent = () => {
+  const mySW = useServiceWorker();
+
+  return <div>current service worker status: {mySW.serviceWorkerStatus}</div>;
+};
 
 const App = () => {
   return (
     <div>
-      <Thing />
+      <ProvideServiceWorker fileName={'/my-sw.js'}>
+        <MyComponent></MyComponent>
+      </ProvideServiceWorker>
     </div>
   );
 };

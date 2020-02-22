@@ -86,6 +86,7 @@ const useServiceWorkerReducer = (
       console.log('Service worker has been registered.');
       return {
         ...state,
+        serviceWorkerStatus: action.payload.serviceWorkerStatus,
         registration: action.payload.registration,
       };
     case 'SERVICE_WORKER_CACHED':
@@ -100,6 +101,7 @@ const useServiceWorkerReducer = (
       return {
         ...state,
         serviceWorkerStatus: action.payload.serviceWorkerStatus,
+        registration: action.payload.registration,
       };
     case 'SERVICE_WORKER_UPDATE_READY':
       console.log('New content is available; please refresh.');
@@ -156,12 +158,11 @@ export const useServiceWorker = () => {
   return React.useContext(serviceWorkerContext);
 };
 
-const useProvideServiceWorker = (file = '/sw.js') => {
+const useProvideServiceWorker = (file = 'sw.js') => {
   const [swState, dispatch] = React.useReducer(
     useServiceWorkerReducer,
     initialState
   );
-
   React.useEffect(() => {
     register(file, {
       ready: registration => {
@@ -171,12 +172,10 @@ const useProvideServiceWorker = (file = '/sw.js') => {
         });
       },
       registered: registration => {
-        // registration.addEventListener('message', onSWMessage);
         dispatch({
           type: 'SERVICE_WORKER_REGISTERED',
           payload: { serviceWorkerStatus: 'registered', registration },
         });
-        // sendStatusUpdate();
       },
       cached: registration => {
         dispatch({
@@ -184,10 +183,10 @@ const useProvideServiceWorker = (file = '/sw.js') => {
           payload: { serviceWorkerStatus: 'cached', registration },
         });
       },
-      updatefound: () => {
+      updatefound: registration => {
         dispatch({
           type: 'SERVICE_WORKER_UPDATE_FOUND',
-          payload: { serviceWorkerStatus: 'updates' },
+          payload: { serviceWorkerStatus: 'updates', registration },
         });
       },
       updated: registration =>
@@ -210,7 +209,7 @@ const useProvideServiceWorker = (file = '/sw.js') => {
     return () => {
       unregister();
     };
-  }, []);
+  });
 
   return swState;
 };

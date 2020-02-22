@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html "
   },
   "dependencies": {
     "react-app-polyfill": "^1.0.0"
@@ -19,6 +19,11 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
     "parcel": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.3.1",
     "typescript": "^3.4.5"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
   }
 }
