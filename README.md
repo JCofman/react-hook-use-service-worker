@@ -20,7 +20,7 @@ Make it easier to target low-end devices while progressively adding high-end-onl
 
 ## Usage
 
-You can import the hooks you wish to use as follows:
+You can import the hook and use the hook like that
 
 ```js
 import * as React from 'react';
@@ -43,6 +43,36 @@ const App = () => {
   );
 };
 export default App;
+```
+
+and your service worker file e.g. `/my-sw.js`. Make sure you host your service worker in the root folder of your project.
+
+```js
+// my-sw.js
+const version = 'my-sw 1';
+
+const main = async () => {
+  console.log(`Service Worker ${version} is starting ...`);
+};
+
+const onInstall = async evt => {
+  console.log(`Service Worker ${version} installed.`);
+  self.skipWaiting();
+};
+const onActivate = async evt => {
+  evt.waitUntil(handleActivation());
+};
+
+const handleActivation = async () => {
+  await clients.claim();
+
+  console.log(`Service Worker ${version} activated.`);
+};
+
+main().catch(console.error);
+
+self.addEventListener('install', onInstall);
+self.addEventListener('activate', onActivate);
 ```
 
 ## Contribute and Commands
