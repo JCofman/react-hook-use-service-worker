@@ -31,17 +31,17 @@
   "author": "jcofman",
   "module": "dist/useserviceworker.esm.js",
   "devDependencies": {
-    "@types/jest": "^25.1.2",
-    "@types/react": "^16.9.19",
+    "@types/jest": "^25.1.4",
+    "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "husky": "^4.2.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "tsdx": "^0.12.3",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.5"
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "register-service-worker": "^1.6.2"
+    "register-service-worker": "^1.7.0"
   }
 }

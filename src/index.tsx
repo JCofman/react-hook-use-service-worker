@@ -209,7 +209,7 @@ const useProvideServiceWorker = (file = 'sw.js') => {
     return () => {
       unregister();
     };
-  });
+  }, []);
 
   return swState;
 };
