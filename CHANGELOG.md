@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Update dependencies for `register-service-worker`
+
 ## 0.2.0
 
 - Update dependencies
