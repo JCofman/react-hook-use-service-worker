@@ -4,6 +4,24 @@
 
 This is a [React Hook](https://reactjs.org/docs/hooks-overview.html) which can register a service worker.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [React use service worker hook &amp; Utilities &middot;](#react-use-service-worker-hook-amp-utilities-middot)
+  - [Affiliate](#affiliate)
+  - [🎯 Objective](#-objective)
+  - [🚀 Installation](#-installation)
+  - [Usage](#usage)
+  - [Contribute and Commands](#contribute-and-commands)
+    - [Jest](#jest)
+    - [TypeScript](#typescript)
+  - [Continuous Integration](#continuous-integration)
+  - [Contributors](#contributors)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Affiliate
 
 If you like to support my OSS work you could "buy me a coffee" or want to take a look on tools I recommend you could checkout.
