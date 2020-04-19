@@ -43,7 +43,10 @@ You can import the hook and use the hook like that
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { useServiceWorker, ProvideServiceWorker } from '../.';
+import {
+  useServiceWorker,
+  ProvideServiceWorker,
+} from 'react-hook-use-service-worker';
 
 const MyComponent = () => {
   const mySW = useServiceWorker();
