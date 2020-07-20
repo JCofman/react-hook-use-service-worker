@@ -1,4 +1,7 @@
 # React use service worker hook &amp; Utilities &middot;
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 > Get everything out of your PWA
 
@@ -133,6 +136,18 @@ Jest tests are set up to run with `npm test` or `yarn test`. This runs the test 
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/ashinga48"><img src="https://avatars1.githubusercontent.com/u/8008140?v=4" width="100px;" alt=""/><br /><sub><b>Ravi Teja</b></sub></a><br /><a href="https://github.com/JCofman/react-hook-use-service-worker/commits?author=ashinga48" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
