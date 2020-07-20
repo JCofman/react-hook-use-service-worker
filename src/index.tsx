@@ -142,11 +142,13 @@ const serviceWorkerContext = React.createContext(initialState);
 export function ProvideServiceWorker({
   children,
   fileName,
+  registrationOptions
 }: {
   children: React.ReactNode;
   fileName: string;
+  registrationOptions ?: object;
 }) {
-  const serviceWorker = useProvideServiceWorker(fileName);
+  const serviceWorker = useProvideServiceWorker(fileName, registrationOptions);
   return (
     <serviceWorkerContext.Provider value={serviceWorker}>
       {children}
@@ -158,13 +160,14 @@ export const useServiceWorker = () => {
   return React.useContext(serviceWorkerContext);
 };
 
-const useProvideServiceWorker = (file = 'sw.js') => {
+const useProvideServiceWorker = (file = 'sw.js', registrationOptions = {}) => {
   const [swState, dispatch] = React.useReducer(
     useServiceWorkerReducer,
     initialState
   );
   React.useEffect(() => {
     register(file, {
+      registrationOptions,
       ready: registration => {
         dispatch({
           type: 'SERVICE_WORKER_READY',
