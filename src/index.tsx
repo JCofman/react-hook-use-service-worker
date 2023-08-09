@@ -182,7 +182,7 @@ const useProvideServiceWorker = (file = 'sw.js', registrationOptions = {}) => {
       },
       cached: registration => {
         dispatch({
-          type: 'SERVICE_WORKER_REGISTERED',
+          type: 'SERVICE_WORKER_CACHED',
           payload: { serviceWorkerStatus: 'cached', registration },
         });
       },
@@ -205,7 +205,7 @@ const useProvideServiceWorker = (file = 'sw.js', registrationOptions = {}) => {
       },
       error: error =>
         dispatch({
-          type: 'SERVICE_WORKER_OFFLINE',
+          type: 'SERVICE_WORKER_ERROR',
           payload: { serviceWorkerStatus: 'error', error },
         }),
     });
